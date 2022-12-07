@@ -10,13 +10,13 @@ function SignInPage() {
 
     return(
         <>
-            <Container className="p-3" style={{marginTop:'14vh'}}>
+            <Container className="p-3" style={{marginTop:'14vh', height:'100vh'}}>
                 <Row>
                     <Col className="d-flex flex-column justify-content-center">
                         <Stack direction="vertical" className="d-flex flex-column justify-content-center">
                             <Image className="w-75" src={WaysHub} />
                             <Card.Text className="text-white fs-5 fw-light w-75" >Join now, share your creations with another people and enjoy other creations</Card.Text>
-                            <Button onClick={() => navigate("/")} variant="primary" type="submit" style={{backgroundColor:'#FF7A00', border: 'none', width:'30%'}} className="mt-5 py-2 fw-bold fs-5 text-white">
+                            <Button onClick={() => navigate("/SignUpPage")} variant="primary" type="submit" style={{backgroundColor:'#FF7A00', border: 'none', width:'30%'}} className="mt-5 py-2 fw-bold fs-5 text-white">
                                 Sign Up
                             </Button>
                         </Stack>
@@ -34,7 +34,7 @@ function SignInPage() {
                                     <Form.Control className="py-2 fs-5" style={{borderColor:'#BCBCBC', borderWidth:'3px', backgroundColor:'#555555', color:'rgb(210,210,210,0.25)'}} type="password" placeholder="Password" />
                                 </Form.Group>
 
-                                <Button variant="primary" type="submit" style={{backgroundColor:'#FF7A00', border: 'none'}} className="py-2 fw-bold fs-5 w-100 text-white">
+                                <Button onClick={() => navigate("/")} variant="primary" type="submit" style={{backgroundColor:'#FF7A00', border: 'none'}} className="py-2 fw-bold fs-5 w-100 text-white">
                                 Sign In
                                 </Button>
 

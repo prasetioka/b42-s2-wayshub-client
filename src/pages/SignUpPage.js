@@ -9,7 +9,7 @@ function SignUpPage() {
 
     return(
         <>
-            <Container className="p-3 mt-4">
+            <Container className="p-3 mt-4" style={{height:'100vh'}}>
                 <Row>
                     <Col className="d-flex flex-column justify-content-center">
                         <Stack direction="vertical" className="d-flex flex-column justify-content-center">
