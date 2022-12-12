@@ -27,7 +27,7 @@ function VideoList() {
 
     return (
         <>
-            <Container className="py-0 px-5 m-0">
+            <Container className="py-0 ps-5 m-0">
 
                 <Row lg={4} >
                     {videos?.length !== 0 ? (

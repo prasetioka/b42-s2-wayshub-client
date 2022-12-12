@@ -16,7 +16,7 @@ function SideNavbar() {
 
     return(
         <>  
-            <Container className="p-5 m-0" style={{height:'100vh', width:'100%', backgroundColor:'#161616'}}>
+            <Container className="p-5 m-0" style={{position:'fixed', height:'100vh', width:'25%', backgroundColor:'#161616'}}>
                 <Stack direction="vertical">
                     <Image src={WaysHubIcon} className="w-75 mb-4" />
 

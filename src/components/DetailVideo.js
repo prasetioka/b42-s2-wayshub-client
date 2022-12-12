@@ -30,11 +30,6 @@ function DetailVideo() {
         return response.data.data;
     });
 
-    // let { data: comments, refetch } = useQuery('commentCache', async () => {
-    //     const response = await API.get('/comments');
-    //     return response.data.data;
-    // });
-
     const [form, setForm] = useState({
         comment: "",
     })
@@ -74,7 +69,7 @@ function DetailVideo() {
         <>
             <Container className="ps-5 pe-0 mb-4">
                 <Stack direction="vertical">
-                    <video src={video?.video} type="video/mp4" controls autoplay />
+                    <video src={video?.video} type="video/mp4" controls autoPlay />
                     <Card.Text className="fs-5 fw-bold text-white mt-3 mb-3">{video?.title}</Card.Text>
                     <Stack direction="horizontal" gap={4}>
                         <Stack direction="horizontal">
@@ -112,9 +107,9 @@ function DetailVideo() {
                     </Form>
                     
                     <hr style={{ borderTop: '3px solid #C2C2C2' }} />
-                    {video.comments?.length !== 0 ? (
+                    {video?.comments.length !== 0 ? (
                         <>
-                            {video.comments?.map((item) => (
+                            {video?.comments.map((item) => (
                                 <Stack direction="horizontal" className="mb-4">
                                     <div className="d-flex flex-column justify-content-center me-3">
                                         <Image src={LinkPhoto + item.channel.photo} style={{ width: '60px' }} />

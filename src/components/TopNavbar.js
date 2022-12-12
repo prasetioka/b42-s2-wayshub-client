@@ -45,7 +45,7 @@ function TopNavbar() {
 
     return (
         <>
-            <Container className="px-5 my-4 ">
+            <Container className="px-5 py-4" style={{position:'fixed', width:'75%', backgroundColor:'#0B0B0B'}}>
                 <Stack direction="horizontal">
                     <Form.Group className="d-flex flex-column justify-content-center me-auto w-50" controlId="formSearch">
                         <Form.Control className="py-1 fs-5" style={{ borderColor: '#BCBCBC', borderWidth: '3px', backgroundColor: '#555555', color: 'rgb(210,210,210,0.25)' }} type="search" placeholder="Search" />

@@ -82,6 +82,7 @@ function App() {
 
             <Col lg={9} className="p-0 m-0">
               <TopNavbar />
+              <div style={{marginTop:'15vh'}}>
               <Routes>
                 <Route exact path='/' element={<VideoList />} />
                 <Route exact path='/AddVideo' element={<FormAddVideo />} />
@@ -91,6 +92,7 @@ function App() {
                 <Route exact path='/EditChannel/:id' element={<FormEditChannel />} />
                 <Route exact path='/DetailVideoPage/:id' element={<VideoDetail />} />
               </Routes>
+              </div>
             </Col>
           </Row>
         </Container>
