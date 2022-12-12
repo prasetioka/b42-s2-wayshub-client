@@ -15,7 +15,7 @@ function SideNavbar() {
     const navigate = useNavigate()
 
     return(
-        <>
+        <>  
             <Container className="p-5 m-0" style={{height:'100vh', width:'100%', backgroundColor:'#161616'}}>
                 <Stack direction="vertical">
                     <Image src={WaysHubIcon} className="w-75 mb-4" />
@@ -40,21 +40,21 @@ function SideNavbar() {
                         <div className="d-flex flex-column justify-content-center me-3">
                             <Image src={UserIcon1} />
                         </div>
-                        <Card.Text className="text-white">Nona Cantik</Card.Text>
+                        <Card.Text className="text-white">Sample 1</Card.Text>
                     </Stack>
 
-                    <Stack direction="horizontal" className="mb-3 btn ps-0" onClick={() => navigate("/CreatorPage")}>
+                    <Stack direction="horizontal" className="mb-3 btn ps-0">
                         <div className="d-flex flex-column justify-content-center me-3">
                             <Image src={UserIcon2} />
                         </div>
-                        <Card.Text className="text-white">Abang Gaming</Card.Text>
+                        <Card.Text className="text-white">Sample 2</Card.Text>
                     </Stack>
 
                     <Stack direction="horizontal" className="mb-3 btn ps-0">
                         <div className="d-flex flex-column justify-content-center me-3">
                             <Image src={UserIcon3} />
                         </div>
-                        <Card.Text className="text-white">Mang Koding</Card.Text>
+                        <Card.Text className="text-white">Sample 3</Card.Text>
                     </Stack>
 
                     <Card.Text className="text-white fs-6 text-center">Show More</Card.Text>

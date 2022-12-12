@@ -1,9 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
+import { UserContext } from "../context/userContext"
 import { Container, Form, Stack, Image, Card, Overlay, Popover } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
+import { useQuery } from 'react-query';
+import { API } from "../config/api"
 
 import AddVideoIcon from "../img/AddVideoIcon.svg"
-import ProfileIcon from "../img/ProfileIcon.svg"
+import Foto from "../img/profile.jpg"
 import MyChannelLogo from "../img/MyChannelLogo.svg"
 import LogoutIcon from "../img/LogoutIcon.svg"
 
@@ -22,9 +25,27 @@ function TopNavbar() {
         setTarget(event.target);
     }
 
+    const [ state, dispatch ] = useContext(UserContext)
+
+    const NavPhoto = "http://localhost:5000/uploads/" + state?.user.photo
+
+    const logout = () => {
+        console.log(state)
+        dispatch({
+            type: "LOGOUT"
+        })
+        navigate("/SignInPage")
+    }
+
+    let { data: channel } = useQuery('channelCache', async () => {
+        const response = await API.get('/channel/' + state.user.id);
+        return response.data.data;
+    });
+    // console.log("ini data channel", channel)
+
     return (
         <>
-            <Container className="px-5 my-4">
+            <Container className="px-5 my-4 ">
                 <Stack direction="horizontal">
                     <Form.Group className="d-flex flex-column justify-content-center me-auto w-50" controlId="formSearch">
                         <Form.Control className="py-1 fs-5" style={{ borderColor: '#BCBCBC', borderWidth: '3px', backgroundColor: '#555555', color: 'rgb(210,210,210,0.25)' }} type="search" placeholder="Search" />
@@ -38,20 +59,20 @@ function TopNavbar() {
                     </Stack>
 
                     <div ref={ref} >
-                        <Image src={ProfileIcon} className="btn p-0" onClick={handleClick} />
+                        <Image src={state?.user.photo === "" ? Foto : NavPhoto  } className="btn p-0" onClick={handleClick} style={{width:'40px'}} />
 
                         <Overlay show={show} target={target} placement="bottom-end" container={ref}>
                             <Popover id="popover-contained" style={{backgroundColor:'#141414'}}>
                                 <Popover.Body className="px-4">
 
-                                    <Stack direction="horizontal" gap={3} className="mb-4 btn p-0" onClick={() => navigate("/MyChannelPage")}>
+                                    <Stack direction="horizontal" gap={3} className="mb-4 btn p-0" onClick={() => navigate("/MyChannelPage/" + channel?.id)}>
                                         <div className="d-flex flex-column justify-content-center">
                                             <Image src={MyChannelLogo} />
                                         </div>
                                         <Card.Text className="text-white">My Channel</Card.Text>
                                     </Stack>
 
-                                    <Stack direction="horizontal" gap={3} className="btn p-0" onClick={() => navigate("/SignInPage")}>
+                                    <Stack direction="horizontal" gap={3} className="btn p-0" onClick={logout}>
                                         <div className="d-flex flex-column justify-content-center">
                                             <Image src={LogoutIcon} />
                                         </div>

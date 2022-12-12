@@ -4,6 +4,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import SideVideoList from "../components/SideVideoList"
 import DetailVideo from "../components/DetailVideo"
 
+
 function VideoDetail() {
 
     return (
